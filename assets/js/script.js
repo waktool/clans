@@ -451,7 +451,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function calculateElapsedTime(startTimestamp) {
-    const startDate = new Date(startTimestamp * 1000);
+    const startDate = new Date((startTimestamp * 1000) - 86400000);
     const now = new Date();
     let years = now.getFullYear() - startDate.getFullYear();
     let months = now.getMonth() - startDate.getMonth();
