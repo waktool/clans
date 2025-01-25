@@ -167,7 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="medal-item" title="Good Medal">
           <img src="assets/images/clan.webp" alt="Good Medal" class="medal-icon">
           <span>${clanData.GoodMedals || 0}</span>
-        </div>
+        </div>      
       </div>
     </div>
 
@@ -419,7 +419,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .map(([battleId, data]) => {
           const battle = battlesJsonData[battleId] || { name: battleId };
           const medalIcon = getMedalIcon(data.medal);
-          const medalClass = data.medal === 'Good' ? 'transparent-icon' : '';
+          const medalClass = data.medal === 'Good' || 'None' ? 'transparent-icon' : '';
           const formattedPoints = data.points.toLocaleString();
           const hoverBattle = `
                 ${battle.name || `Battle ID: ${battleId}`}<br>
