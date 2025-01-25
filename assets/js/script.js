@@ -103,7 +103,9 @@ document.addEventListener("DOMContentLoaded", () => {
       : ""; // Default to an empty string if no status
 
     // Regex to match Discord invite patterns in various formats
-    const discordRegex = /(?:\.gg[ /|]|gg[ /|])([\w-]+)/i;
+    const discordRegex = /(?:\.gg\s*\/\s*|gg\s*\/\s*|\.gg\s*|\bgg\s*)([\w-]+)/i;
+
+
 
     // Extract Discord invites separately for status and description
     const statusDiscordMatch = clanData.Status
