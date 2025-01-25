@@ -63,8 +63,11 @@ document.addEventListener('DOMContentLoaded', () => {
         return response.json();
       })
       .then(data => {
-        if (data.status !== 'ok') throw new Error('Invalid Clan API response');
-        const iconUrl = `https://ps99.biggamesapi.io/image/${data.data.Icon.replace('rbxassetid://', '')}`; // Extract iconUrl here
+        console.log('API Response:', data); // Debugging
+        if (!data || !data.data) throw new Error('Invalid API response');
+        const iconUrl = data.data.Icon
+          ? `https://ps99.biggamesapi.io/image/${data.data.Icon.replace('rbxassetid://', '')}`
+          : 'assets/images/default-icon.png'; // Fallback to a default image
         displayClanTitle(data.data); // Pass clan data to displayClanTitle
         processClanApiMembers(data.data, iconUrl); // Pass iconUrl
       })
@@ -73,6 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
         throw error;
       });
   }
+
 
   function displayClanTitle(clanData) {
     const titleElement = document.getElementById('clanTitle');
@@ -85,17 +89,30 @@ document.addEventListener('DOMContentLoaded', () => {
     const officerCount = clanData.Members.filter(member => member.PermissionLevel === 90).length;
 
     // Remove size attributes from the status using a regex
-    const cleanedStatus = clanData.Status.replace(/<font[^>]*size=["']?\d+["']?[^>]*>/gi, '<font>');
+    const cleanedStatus = clanData.Status
+      ? clanData.Status.replace(/<font[^>]*size=["']?\d+["']?[^>]*>/gi, '<font>')
+      : ''; // Default to an empty string if no status
+
 
     // Regex to match Discord invite patterns in various formats
     const discordRegex = /(?:\.gg[ /|]|gg[ /|])([\w-]+)/i;
 
     // Extract Discord invites separately for status and description
-    const statusDiscordMatch = clanData.Status.match(discordRegex);
-    const descDiscordMatch = clanData.Desc.match(discordRegex);
+    const statusDiscordMatch = clanData.Status
+      ? clanData.Status.match(discordRegex)
+      : null;
 
-    const statusDiscordInvite = statusDiscordMatch ? `https://discord.gg/${statusDiscordMatch[0].split(/[./]/)[1]}` : null;
-    const descDiscordInvite = descDiscordMatch ? `https://discord.gg/${descDiscordMatch[0].split(/[./]/)[1]}` : null;
+    const descDiscordMatch = clanData.Desc
+      ? clanData.Desc.match(discordRegex)
+      : null;
+
+    const statusDiscordInvite = statusDiscordMatch
+      ? `https://discord.gg/${statusDiscordMatch[0].split(/[./]/)[1]}`
+      : null;
+
+    const descDiscordInvite = descDiscordMatch
+      ? `https://discord.gg/${descDiscordMatch[0].split(/[./]/)[1]}`
+      : null;
 
     titleElement.innerHTML = `
     <!-- Top Section -->
@@ -109,10 +126,12 @@ document.addEventListener('DOMContentLoaded', () => {
       ${clanData.Desc}
     </p>
     <!-- Status with Discord Icon -->
-    <div class="status-container">
-      <div class="speech-bubble">
-        ${cleanedStatus}
-      </div>
+<div class="status-container">
+  ${cleanedStatus ? `
+    <div class="speech-bubble">
+      ${cleanedStatus}
+    </div>
+  ` : ''}
   ${(statusDiscordInvite || descDiscordInvite) ? `
     <div class="discord-circle">
       <a href="${statusDiscordInvite || descDiscordInvite}" target="_blank">
@@ -120,7 +139,8 @@ document.addEventListener('DOMContentLoaded', () => {
       </a>
     </div>
   ` : ''}
-    </div>
+</div>
+
   </div>
 </div>
 
