@@ -473,7 +473,7 @@ document.addEventListener("DOMContentLoaded", () => {
               const battle = battlesJsonData[battleId] || { name: battleId };
               const medalIcon = getMedalIcon(data.medal);
               const medalClass =
-                data.medal === "Good" || data.medal === "None"
+                  (data.medal === 'Good' || data.medal === 'None')
                   ? "transparent-icon"
                   : "";
               const formattedPoints = data.points.toLocaleString();
