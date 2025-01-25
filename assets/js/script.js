@@ -116,12 +116,12 @@ document.addEventListener("DOMContentLoaded", () => {
       ? clanData.Desc.match(discordRegex)
       : null;
 
-    const statusDiscordInvite = statusDiscordMatch
-      ? `https://discord.gg/${statusDiscordMatch[0].split(/[./]/)[1]}`
+      const statusDiscordInvite = statusDiscordMatch
+      ? `https://discord.gg/${statusDiscordMatch[1].trim()}` // Trim spaces from invite code
       : null;
-
+    
     const descDiscordInvite = descDiscordMatch
-      ? `https://discord.gg/${descDiscordMatch[0].split(/[./]/)[1]}`
+      ? `https://discord.gg/${descDiscordMatch[1].trim()}` // Trim spaces from invite code
       : null;
 
     titleElement.innerHTML = `
