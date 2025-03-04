@@ -441,9 +441,9 @@ document.addEventListener("DOMContentLoaded", () => {
       <a href="${robloxProfileUrl}" target="_blank" rel="noopener noreferrer"><img src="${avatarUrl}" alt="Avatar" class="avatar"></a>
       <div class="card-content">
         <h3>
-          <a href="${robloxProfileUrl}" target="_blank" rel="noopener noreferrer">${memberName}</a>
+          <a href="${robloxProfileUrl}" target="_blank" rel="noopener noreferrer">${displayName}</a>
         </h3>
-        <p class="username">(@${displayName})</p>
+        <p class="username">(@${memberName})</p>
         <p class="permission-level ${permissionLevel.toLowerCase()}">
           <span>${permissionLevel}</span>
         </p>
