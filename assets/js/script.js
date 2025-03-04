@@ -47,14 +47,16 @@ document.addEventListener("DOMContentLoaded", () => {
   function mapBattlesJsonData(data) {
     const map = {};
     data.forEach((battle) => {
-      map[battle.BattleID] = {
-        name: battle.Name,
-        startDate: new Date(battle.StartDate),
-        endDate: new Date(battle.EndDate),
-      };
+        map[battle.BattleID] = {
+            battleNumber: battle.BattleNumber, // ✅ Store BattleNumber
+            name: battle.Name,
+            startDate: new Date(battle.StartDate),
+            endDate: new Date(battle.EndDate),
+        };
     });
     return map;
-  }
+}
+
 
   // Fetch clan API data
   function fetchClanApiData() {
@@ -80,109 +82,111 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Function to display battle results
-  function displayBattleResults(battles) {
-    const battleContainer = document.getElementById("battle-container");
-  
-    if (!battles || Object.keys(battles).length === 0) {
+// Function to display battle results
+function displayBattleResults(battles) {
+  const battleContainer = document.getElementById("battle-container");
+
+  if (!battles || Object.keys(battles).length === 0) {
       battleContainer.innerHTML = "<p>No battle results available.</p>";
       return;
-    }
-  
-    battleContainer.innerHTML = ""; // Clear existing content
-  
-    Object.keys(battles).forEach((battleKey, index) => {
+  }
+
+  battleContainer.innerHTML = ""; // Clear existing content
+
+  Object.keys(battles).forEach((battleKey) => {
       const battle = battles[battleKey];
-  
+
       // Exclude battles where both Medal and Place are undefined
       if (battle.EarnedMedal === undefined && battle.Place === undefined) {
-        return;
+          return;
       }
-  
+
       const battleInfo = battlesJsonData[battle.BattleID] || {};
       let battleName = battleInfo.name || battle.BattleID;
-  
+
       // Remove "Clan" and "Battle!" from the name
       battleName = battleName.replace(/Clan|Battle!/gi, "").trim();
-  
-      // Battle Number (Position in battles.json)
-      const battleNumber = index + 1;
-  
+
+      // Get Battle Number from battles.json
+      const battleNumber = battleInfo.battleNumber || "N/A"; // Fallback if missing
+
       // Assign a default place range if missing (only for the first 6 battles)
       let assignedPlace = battle.Place;
-      if (!assignedPlace && index < 6) {
-        switch (battle.EarnedMedal?.toLowerCase()) {
-          case "gold":
-            assignedPlace = "1st";
-            break;
-          case "silver":
-            assignedPlace = "2nd - 3rd";
-            break;
-          case "bronze":
-            assignedPlace = "4th - 10th";
-            break;
-          default:
-            assignedPlace = ""; // No place shown if there's no medal
-        }
+      if (!assignedPlace && battle.EarnedMedal) {
+          switch (battle.EarnedMedal.toLowerCase()) {
+              case "gold":
+                  assignedPlace = "1st";
+                  break;
+              case "silver":
+                  assignedPlace = "2nd - 3rd";
+                  break;
+              case "bronze":
+                  assignedPlace = "4th - 10th";
+                  break;
+              default:
+                  assignedPlace = "";
+          }
       } else if (assignedPlace) {
-        assignedPlace = getOrdinalSuffix(assignedPlace); // Convert to ordinal
+          assignedPlace = getOrdinalSuffix(assignedPlace);
       }
-  
+
       // Get Medal Image
       const medalImgSrc = battle.EarnedMedal ? getMedalIcon(battle.EarnedMedal) : "";
       const medalHtml = medalImgSrc
-        ? `<img src="${medalImgSrc}" alt="${battle.EarnedMedal} Medal">`
-        : "";
-  
+          ? `<img src="${medalImgSrc}" alt="${battle.EarnedMedal} Medal">`
+          : "";
+
       // Get Points (if available)
       let pointsHtml = "";
       if (battle.Points !== undefined) {
-        pointsHtml = `
-          <div class="battle-points">
-            <img src="assets/images/stars.webp" alt="Points" class="points-icon">
-            <span>${battle.Points.toLocaleString()}</span>
-          </div>`;
+          pointsHtml = `
+              <div class="battle-points">
+                  <img src="assets/images/stars.webp" alt="Points" class="points-icon">
+                  <span>${battle.Points.toLocaleString()}</span>
+              </div>`;
       }
-  
+
       // Format Place + Star + Points (All in One Row)
       let scoreHtml = assignedPlace || pointsHtml
-        ? `<div class="battle-score">
-            <div class="battle-place">${assignedPlace}</div>
-            ${pointsHtml}
-          </div>`
-        : "";
-  
+          ? `<div class="battle-score">
+              <div class="battle-place">${assignedPlace}</div>
+              ${pointsHtml}
+            </div>`
+          : "";
+
       // Format Dates
       let dateRangeHtml = "";
       if (battleInfo.startDate && battleInfo.endDate) {
-        const startDate = battleInfo.startDate.toLocaleDateString();
-        const endDate = battleInfo.endDate.toLocaleDateString();
-        dateRangeHtml = `<div class="battle-dates">${startDate} - ${endDate}</div>`;
+          const startDate = battleInfo.startDate.toLocaleDateString();
+          const endDate = battleInfo.endDate.toLocaleDateString();
+          dateRangeHtml = `<div class="battle-dates">${startDate} - ${endDate}</div>`;
       }
-  
+
       // Create battle div
       const battleDiv = document.createElement("div");
       battleDiv.classList.add("battle-item");
-  
+
       // Build the final HTML structure
       battleDiv.innerHTML = `
-        <div class="battle-details">
-          <div class="battle-name">
-            <span class="battle-number">#${battleNumber}</span>
-            <span>${battleName}</span>
+          <div class="battle-details">
+              <div class="battle-name">
+                  <span class="battle-number">#${battleNumber}</span>
+                  <span>${battleName}</span>
+              </div>
+              ${dateRangeHtml}
+              ${scoreHtml} <!-- Place + Points in One Row -->
           </div>
-          ${dateRangeHtml}
-          ${scoreHtml} <!-- Place + Points in One Row -->
-        </div>
-        <div class="battle-medal">${medalHtml}</div>
+          <div class="battle-medal">${medalHtml}</div>
       `;
-  
+
       battleContainer.appendChild(battleDiv);
-    });
-  
-    if (battleContainer.innerHTML === "") {
+  });
+
+  if (battleContainer.innerHTML === "") {
       battleContainer.innerHTML = "<p>No valid battle results available.</p>";
-    }
   }
+}
+
   
   
   
