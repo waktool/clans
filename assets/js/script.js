@@ -71,12 +71,136 @@ document.addEventListener("DOMContentLoaded", () => {
           : "assets/images/default-icon.png"; // Fallback to a default image
         displayClanTitle(data.data); // Pass clan data to displayClanTitle
         processClanApiMembers(data.data, iconUrl); // Pass iconUrl
+        displayBattleResults(data.data.Battles); // Process battle data
       })
       .catch((error) => {
         showError(`Failed to fetch clan API data: ${error.message}`);
         throw error;
       });
   }
+
+  // Function to display battle results
+  function displayBattleResults(battles) {
+    const battleContainer = document.getElementById("battle-container");
+  
+    if (!battles || Object.keys(battles).length === 0) {
+      battleContainer.innerHTML = "<p>No battle results available.</p>";
+      return;
+    }
+  
+    battleContainer.innerHTML = ""; // Clear existing content
+  
+    Object.keys(battles).forEach((battleKey, index) => {
+      const battle = battles[battleKey];
+  
+      // Exclude battles where both Medal and Place are undefined
+      if (battle.EarnedMedal === undefined && battle.Place === undefined) {
+        return;
+      }
+  
+      const battleInfo = battlesJsonData[battle.BattleID] || {};
+      let battleName = battleInfo.name || battle.BattleID;
+  
+      // Remove "Clan" and "Battle!" from the name
+      battleName = battleName.replace(/Clan|Battle!/gi, "").trim();
+  
+      // Battle Number (Position in battles.json)
+      const battleNumber = index + 1;
+  
+      // Assign a default place range if missing (only for the first 6 battles)
+      let assignedPlace = battle.Place;
+      if (!assignedPlace && index < 6) {
+        switch (battle.EarnedMedal?.toLowerCase()) {
+          case "gold":
+            assignedPlace = "1st";
+            break;
+          case "silver":
+            assignedPlace = "2nd - 3rd";
+            break;
+          case "bronze":
+            assignedPlace = "4th - 10th";
+            break;
+          default:
+            assignedPlace = ""; // No place shown if there's no medal
+        }
+      } else if (assignedPlace) {
+        assignedPlace = getOrdinalSuffix(assignedPlace); // Convert to ordinal
+      }
+  
+      // Get Medal Image
+      const medalImgSrc = battle.EarnedMedal ? getMedalIcon(battle.EarnedMedal) : "";
+      const medalHtml = medalImgSrc
+        ? `<img src="${medalImgSrc}" alt="${battle.EarnedMedal} Medal">`
+        : "";
+  
+      // Get Points (if available) and replace text with an image
+      let pointsHtml = "";
+      if (battle.Points !== undefined) {
+        pointsHtml = `
+          <div class="battle-points">
+            <img src="assets/images/stars.webp" alt="Points" class="points-icon">
+            <span>${battle.Points.toLocaleString()}</span>
+          </div>`;
+      }      
+  
+      // Format Place (below points now)
+      let placeHtml = assignedPlace
+        ? `<div class="battle-place">${assignedPlace}</div>`
+        : "";
+  
+      // Format Dates
+      let dateRangeHtml = "";
+      if (battleInfo.startDate && battleInfo.endDate) {
+        const startDate = battleInfo.startDate.toLocaleDateString();
+        const endDate = battleInfo.endDate.toLocaleDateString();
+        dateRangeHtml = `<div class="battle-dates">${startDate} - ${endDate}</div>`;
+      }
+  
+      // Create battle div
+      const battleDiv = document.createElement("div");
+      battleDiv.classList.add("battle-item");
+  
+      // Build the final HTML structure
+      battleDiv.innerHTML = `
+        <div class="battle-details">
+          <div class="battle-name">
+            <span class="battle-number">#${battleNumber}</span>
+            <span>${battleName}</span>
+          </div>
+          ${dateRangeHtml}
+          ${pointsHtml} <!-- Points now ABOVE place -->
+          ${placeHtml}
+        </div>
+        <div class="battle-medal">${medalHtml}</div>
+      `;
+  
+      battleContainer.appendChild(battleDiv);
+    });
+  
+    if (battleContainer.innerHTML === "") {
+      battleContainer.innerHTML = "<p>No valid battle results available.</p>";
+    }
+  }
+  
+  
+  // Function to add ordinal suffix (1st, 2nd, 3rd, etc.)
+  function getOrdinalSuffix(number) {
+    if (typeof number !== "number") return number;
+    const j = number % 10,
+      k = number % 100;
+    if (j === 1 && k !== 11) return `${number}st`;
+    if (j === 2 && k !== 12) return `${number}nd`;
+    if (j === 3 && k !== 13) return `${number}rd`;
+    return `${number}th`;
+  }
+  
+  
+  
+  
+  
+  
+  
+  
 
   function displayClanTitle(clanData) {
     const titleElement = document.getElementById("clanTitle");
@@ -97,9 +221,9 @@ document.addEventListener("DOMContentLoaded", () => {
     // Remove size attributes from the status using a regex
     const cleanedStatus = clanData.Status
       ? clanData.Status.replace(
-          /<font[^>]*size=["']?\d+["']?[^>]*>/gi,
-          "<font>",
-        )
+        /<font[^>]*size=["']?\d+["']?[^>]*>/gi,
+        "<font>",
+      )
       : ""; // Default to an empty string if no status
 
     // Regex to match Discord invite patterns in various formats
@@ -116,10 +240,10 @@ document.addEventListener("DOMContentLoaded", () => {
       ? clanData.Desc.match(discordRegex)
       : null;
 
-      const statusDiscordInvite = statusDiscordMatch
+    const statusDiscordInvite = statusDiscordMatch
       ? `https://discord.gg/${statusDiscordMatch[1].trim()}` // Trim spaces from invite code
       : null;
-    
+
     const descDiscordInvite = descDiscordMatch
       ? `https://discord.gg/${descDiscordMatch[1].trim()}` // Trim spaces from invite code
       : null;
@@ -137,26 +261,24 @@ document.addEventListener("DOMContentLoaded", () => {
     </p>
     <!-- Status with Discord Icon -->
 <div class="status-container">
-  ${
-    cleanedStatus
-      ? `
+  ${cleanedStatus
+        ? `
     <div class="speech-bubble">
       ${cleanedStatus}
     </div>
   `
-      : ""
-  }
-  ${
-    statusDiscordInvite || descDiscordInvite
-      ? `
+        : ""
+      }
+  ${statusDiscordInvite || descDiscordInvite
+        ? `
     <div class="discord-circle">
       <a href="${statusDiscordInvite || descDiscordInvite}" target="_blank">
         <img src="assets/images/discord.svg" alt="Discord Icon" class="discord-icon-circle">
       </a>
     </div>
   `
-      : ""
-  }
+        : ""
+      }
 </div>
 
   </div>
@@ -167,27 +289,33 @@ document.addEventListener("DOMContentLoaded", () => {
 </div>
     </div>
 
-    <div class="clan-results">
-      <h2>Clan Battle Results</h2>
-      <div class="medals-summary">
-        <div class="medal-item" title="Gold Medal">
-          <img src="assets/images/gold.webp" alt="Gold Medal" class="medal-icon">
-          <span>${clanData.GoldMedals || 0}</span>
-        </div>
-        <div class="medal-item" title="Silver Medal">
-          <img src="assets/images/silver.webp" alt="Silver Medal" class="medal-icon">
-          <span>${clanData.SilverMedals || 0}</span>
-        </div>
-        <div class="medal-item" title="Bronze Medal">
-          <img src="assets/images/bronze.webp" alt="Bronze Medal" class="medal-icon">
-          <span>${clanData.BronzeMedals || 0}</span>
-        </div>
-        <div class="medal-item" title="Good Medal">
-          <img src="assets/images/clan.webp" alt="Good Medal" class="medal-icon">
-          <span>${clanData.GoodMedals || 0}</span>
-        </div>      
+<div class="clan-results">
+  <h2>Clan Battle Results</h2>
+
+  <!-- Medals Section -->
+  <div class="medals-summary">
+      <div class="medal-item" title="Gold Medal">
+        <img src="assets/images/gold.webp" alt="Gold Medal" class="medal-icon">
+        <span>${clanData.GoldMedals || 0}</span>
       </div>
-    </div>
+      <div class="medal-item" title="Silver Medal">
+        <img src="assets/images/silver.webp" alt="Silver Medal" class="medal-icon">
+        <span>${clanData.SilverMedals || 0}</span>
+      </div>
+      <div class="medal-item" title="Bronze Medal">
+        <img src="assets/images/bronze.webp" alt="Bronze Medal" class="medal-icon">
+        <span>${clanData.BronzeMedals || 0}</span>
+      </div>
+      <div class="medal-item" title="Good Medal">
+        <img src="assets/images/clan.webp" alt="Good Medal" class="medal-icon">
+        <span>${clanData.GoodMedals || 0}</span>
+      </div>   
+  </div>
+
+  <!-- Battle Results Section -->
+  <div id="battle-container"></div>
+</div>
+
 
    
 <div class="clan-details-box">
@@ -471,26 +599,26 @@ document.addEventListener("DOMContentLoaded", () => {
         <h4>Clan Battle Participation</h4> <!-- Title for the section -->
         <div class="medals-container">
           ${Object.entries(battles)
-            .map(([battleId, data]) => {
-              const battle = battlesJsonData[battleId] || { name: battleId };
-              const medalIcon = getMedalIcon(data.medal);
-              const medalClass =
-                  (data.medal === 'Good' || data.medal === 'None')
-                  ? "transparent-icon"
-                  : "";
-              const formattedPoints = data.points.toLocaleString();
-              const hoverBattle = `
+        .map(([battleId, data]) => {
+          const battle = battlesJsonData[battleId] || { name: battleId };
+          const medalIcon = getMedalIcon(data.medal);
+          const medalClass =
+            (data.medal === 'Good' || data.medal === 'None')
+              ? "transparent-icon"
+              : "";
+          const formattedPoints = data.points.toLocaleString();
+          const hoverBattle = `
                 ${battle.name || `Battle ID: ${battleId}`}<br>
                 ${formattedPoints}
               `;
-              return `
+          return `
             <div class="tooltip-container">
               <img src="${medalIcon}" alt="${data.medal} Medal" class="medal-icon ${medalClass}">
               <div class="tooltip">${hoverBattle}</div>
             </div>
               `;
-            })
-            .join("")}
+        })
+        .join("")}
         </div>
       </div>
     `;
