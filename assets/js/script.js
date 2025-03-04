@@ -133,7 +133,7 @@ document.addEventListener("DOMContentLoaded", () => {
         ? `<img src="${medalImgSrc}" alt="${battle.EarnedMedal} Medal">`
         : "";
   
-      // Get Points (if available) and replace text with an image
+      // Get Points (if available)
       let pointsHtml = "";
       if (battle.Points !== undefined) {
         pointsHtml = `
@@ -141,11 +141,14 @@ document.addEventListener("DOMContentLoaded", () => {
             <img src="assets/images/stars.webp" alt="Points" class="points-icon">
             <span>${battle.Points.toLocaleString()}</span>
           </div>`;
-      }      
+      }
   
-      // Format Place (below points now)
-      let placeHtml = assignedPlace
-        ? `<div class="battle-place">${assignedPlace}</div>`
+      // Format Place + Star + Points (All in One Row)
+      let scoreHtml = assignedPlace || pointsHtml
+        ? `<div class="battle-score">
+            <div class="battle-place">${assignedPlace}</div>
+            ${pointsHtml}
+          </div>`
         : "";
   
       // Format Dates
@@ -168,8 +171,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <span>${battleName}</span>
           </div>
           ${dateRangeHtml}
-          ${pointsHtml} <!-- Points now ABOVE place -->
-          ${placeHtml}
+          ${scoreHtml} <!-- Place + Points in One Row -->
         </div>
         <div class="battle-medal">${medalHtml}</div>
       `;
@@ -183,6 +185,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   
   
+  
   // Function to add ordinal suffix (1st, 2nd, 3rd, etc.)
   function getOrdinalSuffix(number) {
     if (typeof number !== "number") return number;
@@ -193,13 +196,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (j === 3 && k !== 13) return `${number}rd`;
     return `${number}th`;
   }
-  
-  
-  
-  
-  
-  
-  
   
 
   function displayClanTitle(clanData) {
