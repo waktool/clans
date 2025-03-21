@@ -198,5 +198,21 @@
         "Description": "",
         "StartDate": "2025-02-22",
         "EndDate": "2025-02-28"
+    },
+    {
+        "BattleNumber": 26,
+        "BattleID": "LuckyBattle",
+        "Name": "Egyptian Battle!",
+        "Description": "Open final room Raid chests!",
+        "StartDate": "2025-03-08",
+        "EndDate": "2025-03-14"
+    },
+    {
+        "BattleNumber": 27,
+        "BattleID": "TieDyeBattle",
+        "Name": "Tie Dye Battle!",
+        "Description": "Most Lucky Raid bosses destroyed!",
+        "StartDate": "2025-03-15",
+        "EndDate": "2025-03-21"
     }
 ]
