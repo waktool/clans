@@ -214,5 +214,13 @@
         "Description": "Most Lucky Raid bosses destroyed!",
         "StartDate": "2025-03-15",
         "EndDate": "2025-03-21"
+    },
+    {
+        "BattleNumber": 28,
+        "BattleID": "AthenaBattle",
+        "Name": "Athena Battle!",
+        "Description": "Most gems mined!",
+        "StartDate": "2025-03-29",
+        "EndDate": "2025-04-04"
     }
 ]
