@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,45 +8,53 @@
     <link rel="stylesheet" href="assets/css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <header>
         <div id="clanTitle"></div>
     </header>
     <div class="theme-toggle">
         <label class="switch">
-          <input type="checkbox" id="theme-switch">
-          <span class="slider round"></span>
+            <input type="checkbox" id="theme-switch">
+            <span class="slider round"></span>
         </label>
-      </div>
-      
-    <main>        
+    </div>
+
+    <main>
         <div id="loading">
             Loading clan members...
             <div class="spinner"></div>
-        </div>        
+        </div>
         <div id="cardContainer"></div>
     </main>
     <script src="assets/js/script.js"></script>
 </body>
+
 </html>
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const themeSwitch = document.getElementById('theme-switch');
-      const body = document.body;
-      const savedTheme = localStorage.getItem('theme');
-      if (savedTheme === 'dark') {
-        body.classList.add('dark-mode');
-        themeSwitch.checked = true;
-      }
-      themeSwitch.addEventListener('change', () => {
-        if (themeSwitch.checked) {
-          body.classList.add('dark-mode');
-          localStorage.setItem('theme', 'dark');
+        const themeSwitch = document.getElementById('theme-switch');
+        const body = document.body;
+
+        // ✅ Default to dark unless light is stored
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'light') {
+            body.classList.remove('dark-mode');
+            themeSwitch.checked = false;
         } else {
-          body.classList.remove('dark-mode');
-          localStorage.setItem('theme', 'light');
+            body.classList.add('dark-mode');
+            themeSwitch.checked = true;
         }
-      });
+
+        themeSwitch.addEventListener('change', () => {
+            if (themeSwitch.checked) {
+                body.classList.add('dark-mode');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                body.classList.remove('dark-mode');
+                localStorage.setItem('theme', 'light');
+            }
+        });
     });
-    </script>
-    
+
+</script>
