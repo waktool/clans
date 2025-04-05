@@ -11,7 +11,14 @@
     <header>
         <div id="clanTitle"></div>
     </header>
-    <main>
+    <div class="theme-toggle">
+        <label class="switch">
+          <input type="checkbox" id="theme-switch">
+          <span class="slider round"></span>
+        </label>
+      </div>
+      
+    <main>        
         <div id="loading">
             Loading clan members...
             <div class="spinner"></div>
@@ -21,3 +28,24 @@
     <script src="assets/js/script.js"></script>
 </body>
 </html>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const themeSwitch = document.getElementById('theme-switch');
+      const body = document.body;
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark') {
+        body.classList.add('dark-mode');
+        themeSwitch.checked = true;
+      }
+      themeSwitch.addEventListener('change', () => {
+        if (themeSwitch.checked) {
+          body.classList.add('dark-mode');
+          localStorage.setItem('theme', 'dark');
+        } else {
+          body.classList.remove('dark-mode');
+          localStorage.setItem('theme', 'light');
+        }
+      });
+    });
+    </script>
+    

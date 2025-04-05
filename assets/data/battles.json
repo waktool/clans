@@ -5,7 +5,29 @@
         "Name": "Festive Clan Battle!",
         "Description": "Open the most presents!",
         "StartDate": "2023-12-16",
-        "EndDate": "2023-12-29"
+        "EndDate": "2023-12-29",
+        "Rewards": [
+            {
+                "Name": "Huge Present Cat",
+                "ID": "15637230004"
+            },
+            {
+                "Name": "Present Hoverboard",
+                "ID": "15642824601"
+            },
+            {
+                "Name": "Exclusive Fruit Egg",
+                "ID": "15628887305"
+            },            
+            {
+                "Name": "Present Booth",
+                "ID": "15642817138"
+            },
+            {
+                "Name": "Clan Gift",
+                "ID": "17025063453"
+            }
+        ]
     },
     {
         "BattleNumber": 2,
@@ -13,7 +35,29 @@
         "Name": "New Year Clan Battle!",
         "Description": "Hatch the most active huge pets!",
         "StartDate": "2023-12-30",
-        "EndDate": "2024-01-19"
+        "EndDate": "2024-01-19",
+        "Rewards": [
+            {
+                "Name": "Huge Owl",
+                "ID": "15809137117"
+            },
+            {
+                "Name": "Blobfish Hoverboard",
+                "ID": "15280245992"
+            },
+            {
+                "Name": "Exclusive Fruit Egg",
+                "ID": "15628887305"
+            },               
+            {
+                "Name": "Cupcake Booth",
+                "ID": "14988724735"
+            },
+            {
+                "Name": "Clan Gift",
+                "ID": "17025063453"
+            }
+        ]
     },
     {
         "BattleNumber": 3,
@@ -21,7 +65,29 @@
         "Name": "Pet Collecting Battle!",
         "Description": "Collect the most unique pets in your inventory!",
         "StartDate": "2024-01-20",
-        "EndDate": "2024-02-09"
+        "EndDate": "2024-02-09",
+        "Rewards": [
+            {
+                "Name": "Huge Sensei Penguin",
+                "ID": "16029125715"
+            },
+            {
+                "Name": "Pegasus Hoverboard",
+                "ID": "15280245549"
+            },
+            {
+                "Name": "Exclusive Emoji Egg",
+                "ID": "16011773627"
+            },              
+            {
+                "Name": "M-10 Booth",
+                "ID": "14988723452"
+            },
+            {
+                "Name": "Clan Gift",
+                "ID": "17025063453"
+            }
+        ]
     },
     {
         "BattleNumber": 4,
@@ -29,7 +95,29 @@
         "Name": "Achievements Battle!",
         "Description": "Complete the most achievements!",
         "StartDate": "2024-02-10",
-        "EndDate": "2024-02-21"
+        "EndDate": "2024-02-21",
+        "Rewards": [
+            {
+                "Name": "Huge Empyrean Axolotl",
+                "ID": "14976421410"
+            },
+            {
+                "Name": "Ducky Hoverboard",
+                "ID": "15280245724"
+            },
+            {
+                "Name": "Exclusive Valentine's Egg",
+                "ID": "16302977915"
+            },              
+            {
+                "Name": "Empyrean Booth",
+                "ID": "16250803198"
+            },
+            {
+                "Name": "Clan Gift",
+                "ID": "17025063453"
+            }
+        ]
     },
     {
         "BattleNumber": 5,
@@ -37,7 +125,29 @@
         "Name": "Raid Clan Battle!",
         "Description": "Complete the most rooms in the Raid Minigame!",
         "StartDate": "2024-02-24",
-        "EndDate": "2024-03-15"
+        "EndDate": "2024-03-15",
+        "Rewards": [
+            {
+                "Name": "Huge Mystical Fox",
+                "ID": "14976496299"
+            },
+            {
+                "Name": "Cosmic Hoverboard",
+                "ID": "15311108491"
+            },
+            {
+                "Name": "Exclusive Super Jelly Egg",
+                "ID": "16290865780"
+            },              
+            {
+                "Name": "Galaxy Booth",
+                "ID": "14988724081"
+            },
+            {
+                "Name": "Clan Gift",
+                "ID": "17025063453"
+            }
+        ]
     },
     {
         "BattleNumber": 6,
@@ -45,7 +155,29 @@
         "Name": "Quest Clan Battle!",
         "Description": "Complete the most clan quests!",
         "StartDate": "2024-03-16",
-        "EndDate": "2024-03-29"
+        "EndDate": "2024-03-29",
+        "Rewards": [
+            {
+                "Name": "Huge Alien Arachnid",
+                "ID": "16756608144"
+            },
+            {
+                "Name": "Bleebo The Alien Hoverboard",
+                "ID": "16756713145"
+            },
+            {
+                "Name": "Exclusive Superhero Egg",
+                "ID": "16756520769"
+            },              
+            {
+                "Name": "Alien Booth",
+                "ID": "16756708947"
+            },
+            {
+                "Name": "Clan Gift",
+                "ID": "17025063453"
+            }
+        ]
     },
     {
         "BattleNumber": 7,
@@ -53,7 +185,25 @@
         "Name": "Pixel Clan Battle!",
         "Description": "Complete the most clan quests!",
         "StartDate": "2024-04-06",
-        "EndDate": "2024-04-19"
+        "EndDate": "2024-04-19",
+        "Rewards": [
+            {
+                "Name": "Huge Pixel Shark",
+                "ID": "17024845317"
+            },
+            {
+                "Name": "Pixel Dragon Hoverboard",
+                "ID": "17027856286"
+            },
+            {
+                "Name": "Pixel Booth",
+                "ID": "17028277869"
+            },
+            {
+                "Name": "Clan Gift",
+                "ID": "17025063453"
+            }
+        ]
     },
     {
         "BattleNumber": 8,
@@ -61,7 +211,25 @@
         "Name": "Bubble Clan Battle!",
         "Description": "Create the most Glitched Gifts!",
         "StartDate": "2024-04-27",
-        "EndDate": "2024-05-10"
+        "EndDate": "2024-05-10",
+        "Rewards": [
+            {
+                "Name": "Huge Bubble Dog",
+                "ID": "17277934726"
+            },
+            {
+                "Name": "Bubble Hoverboard",
+                "ID": "17277981816"
+            },
+            {
+                "Name": "Bubble Booth",
+                "ID": "17277978399"
+            },
+            {
+                "Name": "Clan Gift",
+                "ID": "17025063453"
+            }
+        ]
     },
     {
         "BattleNumber": 9,
@@ -69,7 +237,25 @@
         "Name": "Fragmented Clan Battle!",
         "Description": "Collect the most prison keys!",
         "StartDate": "2024-05-18",
-        "EndDate": "2024-05-31"
+        "EndDate": "2024-05-31",
+        "Rewards": [
+            {
+                "Name": "Huge Fragmented Dominus",
+                "ID": "17421845704"
+            },
+            {
+                "Name": "Fragmented Hoverboard",
+                "ID": "17513943752"
+            },
+            {
+                "Name": "Fragmented Booth",
+                "ID": "17513950717"
+            },
+            {
+                "Name": "Clan Gift",
+                "ID": "17025063453"
+            }
+        ]
     },
     {
         "BattleNumber": 10,
@@ -77,7 +263,25 @@
         "Name": "Wicked Clan Battle!",
         "Description": "Collect the most hacker keys!",
         "StartDate": "2024-06-08",
-        "EndDate": "2024-06-21"
+        "EndDate": "2024-06-21",
+        "Rewards": [
+            {
+                "Name": "Huge Wicked Empyrean Dragon",
+                "ID": "17746014334"
+            },
+            {
+                "Name": "Wicked Hoverboard",
+                "ID": "17761140826"
+            },
+            {
+                "Name": "Wicked Booth",
+                "ID": "17761182857"
+            },
+            {
+                "Name": "Clan Gift",
+                "ID": "17025063453"
+            }
+        ]
     },
     {
         "BattleNumber": 11,
@@ -85,7 +289,25 @@
         "Name": "Safety Clan Battle!",
         "Description": "Hatch good and evil huge pets!",
         "StartDate": "2024-06-22",
-        "EndDate": "2024-07-05"
+        "EndDate": "2024-07-05",
+        "Rewards": [
+            {
+                "Name": "Huge Safety Cat",
+                "ID": "18127300990"
+            },
+            {
+                "Name": "Safety Hoverboard",
+                "ID": "18127021259"
+            },
+            {
+                "Name": "Safety Booth",
+                "ID": "18127818411"
+            },
+            {
+                "Name": "Clan Gift",
+                "ID": "17025063453"
+            }
+        ]
     },
     {
         "BattleNumber": 12,
@@ -93,7 +315,25 @@
         "Name": "Clown Clan Battle!",
         "Description": "Total millionaire run rooms visited without failing!",
         "StartDate": "2024-07-20",
-        "EndDate": "2024-08-02"
+        "EndDate": "2024-08-02",
+        "Rewards": [
+            {
+                "Name": "Huge Clown Cat",
+                "ID": "18520054035"
+            },
+            {
+                "Name": "Clown Hoverboard",
+                "ID": "18556730015"
+            },
+            {
+                "Name": "Clown Booth",
+                "ID": "18556638001"
+            },
+            {
+                "Name": "Clan Gift",
+                "ID": "17025063453"
+            }
+        ]
     },
     {
         "BattleNumber": 13,
@@ -101,7 +341,25 @@
         "Name": "Ice Cream Clan Battle!",
         "Description": "Roll the best pets in the RNG event!",
         "StartDate": "2024-08-10",
-        "EndDate": "2024-08-23"
+        "EndDate": "2024-08-23",
+        "Rewards": [
+            {
+                "Name": "Huge Ice Cream Cone",
+                "ID": "14976462189"
+            },
+            {
+                "Name": "Ice Cream Hoverboard",
+                "ID": "18856413784"
+            },
+            {
+                "Name": "Ice Cream Booth",
+                "ID": "18856297202"
+            },
+            {
+                "Name": "Clan Gift",
+                "ID": "17025063453"
+            }
+        ]
     },
     {
         "BattleNumber": 14,
@@ -109,7 +367,25 @@
         "Name": "Rave Crab Clan Battle!",
         "Description": "Earn points with the Color Machine!",
         "StartDate": "2024-08-31",
-        "EndDate": "2024-09-13"
+        "EndDate": "2024-09-13",
+        "Rewards": [
+            {
+                "Name": "Huge Rave Crab",
+                "ID": "109133967059639"
+            },
+            {
+                "Name": "Rave Crab Hoverboard",
+                "ID": "104010438711348"
+            },
+            {
+                "Name": "Rave Crab Booth",
+                "ID": "74989206681600"
+            },
+            {
+                "Name": "Clan Gift",
+                "ID": "17025063453"
+            }
+        ]
     },
     {
         "BattleNumber": 15,
@@ -117,7 +393,25 @@
         "Name": "Reversed Clan Battle!",
         "Description": "Catch rare pets in the Elemental World!",
         "StartDate": "2024-09-21",
-        "EndDate": "2024-04-10"
+        "EndDate": "2024-04-10",
+        "Rewards": [
+            {
+                "Name": "Huge Reversed Cat",
+                "ID": "86486361253800"
+            },
+            {
+                "Name": "Reversed Hoverboard",
+                "ID": "104003058332482"
+            },
+            {
+                "Name": "Reversed Booth",
+                "ID": "92516703556038"
+            },
+            {
+                "Name": "Clan Gift",
+                "ID": "17025063453"
+            }
+        ]
     },
     {
         "BattleNumber": 16,
@@ -125,7 +419,25 @@
         "Name": "Ghost Clan Battle!",
         "Description": "Loot Pumpkin & Candy Corn drops!",
         "StartDate": "2024-10-19",
-        "EndDate": "2024-11-01"
+        "EndDate": "2024-11-01",
+        "Rewards": [
+            {
+                "Name": "Huge Ghost Cat",
+                "ID": "94290261080713"
+            },
+            {
+                "Name": "Ghost Hoverboard",
+                "ID": "135978414574016"
+            },
+            {
+                "Name": "Ghost Cat Booth",
+                "ID": "93214200492370"
+            },
+            {
+                "Name": "Clan Gift",
+                "ID": "17025063453"
+            }
+        ]
     },
     {
         "BattleNumber": 17,
@@ -133,7 +445,25 @@
         "Name": "Blimp Dragon Clan Battle!",
         "Description": "Hatch event huge pets!",
         "StartDate": "2024-11-09",
-        "EndDate": "2024-11-23"
+        "EndDate": "2024-11-23",
+        "Rewards": [
+            {
+                "Name": "Huge Blimp Dragon",
+                "ID": "113409897234634"
+            },
+            {
+                "Name": "Blimp Dragon Hoverboard",
+                "ID": "96120997011987"
+            },
+            {
+                "Name": "Blimp Dragon Booth",
+                "ID": "79373071847009"
+            },
+            {
+                "Name": "Clan Gift",
+                "ID": "17025063453"
+            }
+        ]
     },
     {
         "BattleNumber": 18,
@@ -141,7 +471,25 @@
         "Name": "Bee Clan Battle!",
         "Description": "Earn the most Secret Santa points!",
         "StartDate": "2024-12-07",
-        "EndDate": "2024-12-13"
+        "EndDate": "2024-12-13",
+        "Rewards": [
+            {
+                "Name": "Huge Doodle Bee",
+                "ID": "84450044658879"
+            },
+            {
+                "Name": "Bee Hoverboard",
+                "ID": "14910770233"
+            },
+            {
+                "Name": "Bee Booth",
+                "ID": "100830249479387"
+            },
+            {
+                "Name": "Clan Gift",
+                "ID": "17025063453"
+            }
+        ]
     },
     {
         "BattleNumber": 19,
@@ -149,7 +497,25 @@
         "Name": "Gingerbread Battle!",
         "Description": "Add the most Titanic Presents pets!",
         "StartDate": "2024-12-14",
-        "EndDate": "2024-12-20"
+        "EndDate": "2024-12-20",
+        "Rewards": [
+            {
+                "Name": "Huge Gingerbread Dragon",
+                "ID": "110621195469129"
+            },
+            {
+                "Name": "Gingerbread Hoverboard",
+                "ID": "118516797186175"
+            },
+            {
+                "Name": "Gingerbread Booth",
+                "ID": "89607474717261"
+            },
+            {
+                "Name": "Clan Gift",
+                "ID": "17025063453"
+            }
+        ]
     },
     {
         "BattleNumber": 20,
@@ -157,7 +523,25 @@
         "Name": "Diamond Battle!",
         "Description": "Open the most Christmas Presents!",
         "StartDate": "2024-12-21",
-        "EndDate": "2024-12-27"
+        "EndDate": "2024-12-27",
+        "Rewards": [
+            {
+                "Name": "Huge Diamond Dragon",
+                "ID": "135778952005746"
+            },
+            {
+                "Name": "Diamond Hoverboard",
+                "ID": "14910757305"
+            },
+            {
+                "Name": "Diamond Booth",
+                "ID": "14988724547"
+            },
+            {
+                "Name": "Clan Gift",
+                "ID": "17025063453"
+            }
+        ]
     },
     {
         "BattleNumber": 21,
@@ -165,7 +549,25 @@
         "Name": "Blurred Battle!",
         "Description": "Most rooms in the Grinch Chest Raid!",
         "StartDate": "2024-12-28",
-        "EndDate": "2025-01-03"
+        "EndDate": "2025-01-03",
+        "Rewards": [
+            {
+                "Name": "Huge Blurred Agony",
+                "ID": "136961969731573"
+            },
+            {
+                "Name": "Blurred Hoverboard",
+                "ID": "134893611907484"
+            },
+            {
+                "Name": "Blurred Booth",
+                "ID": "90797637506761"
+            },
+            {
+                "Name": "Clan Gift",
+                "ID": "17025063453"
+            }
+        ]
     },
     {
         "BattleNumber": 22,
@@ -173,7 +575,25 @@
         "Name": "Wyvern Battle!",
         "Description": "Most Tokens win from the Pet Games!",
         "StartDate": "2025-01-11",
-        "EndDate": "2025-01-24"
+        "EndDate": "2025-01-24",
+        "Rewards": [
+            {
+                "Name": "Huge Wyvern of Hades",
+                "ID": "113089838370784"
+            },
+            {
+                "Name": "Wyvern of Hades",
+                "ID": "103080624006267"
+            },
+            {
+                "Name": "Wyvern Booth",
+                "ID": "85644191583516"
+            },
+            {
+                "Name": "Clan Gift",
+                "ID": "17025063453"
+            }
+        ]
     },
     {
         "BattleNumber": 23,
@@ -181,7 +601,25 @@
         "Name": "Mushroom Battle!",
         "Description": "Destroy the most boss chests with cannons!",
         "StartDate": "2025-01-25",
-        "EndDate": "2025-01-31"
+        "EndDate": "2025-01-31",
+        "Rewards": [
+            {
+                "Name": "Huge Mushroom King",
+                "ID": "125986697104431"
+            },
+            {
+                "Name": "Mushroom Hoverboard",
+                "ID": "73437399037786"
+            },
+            {
+                "Name": "Mushroom Booth",
+                "ID": "80654746806747"
+            },
+            {
+                "Name": "Clan Gift",
+                "ID": "17025063453"
+            }
+        ]
     },
     {
         "BattleNumber": 24,
@@ -189,7 +627,25 @@
         "Name": "Holographic Battle!",
         "Description": "Most total tower height!",
         "StartDate": "2025-02-08",
-        "EndDate": "2025-02-14"
+        "EndDate": "2025-02-14",
+        "Rewards": [
+            {
+                "Name": "Huge Holographic Monkey",
+                "ID": "77505723512124"
+            },
+            {
+                "Name": "Hologram Hoverboard",
+                "ID": "16499939894"
+            },
+            {
+                "Name": "Holographic Booth",
+                "ID": "111848916018772"
+            },
+            {
+                "Name": "Clan Gift",
+                "ID": "17025063453"
+            }
+        ]
     },
     {
         "BattleNumber": 25,
@@ -197,7 +653,25 @@
         "Name": "Evil Battle!",
         "Description": "Open rare pets from packs!",
         "StartDate": "2025-02-22",
-        "EndDate": "2025-02-28"
+        "EndDate": "2025-02-28",
+        "Rewards": [
+            {
+                "Name": "Huge Evil Deer",
+                "ID": "105420679784540"
+            },
+            {
+                "Name": "Evil Hoverboard",
+                "ID": "83128724682991"
+            },
+            {
+                "Name": "Evil Booth",
+                "ID": "133160346485675"
+            },
+            {
+                "Name": "Clan Gift",
+                "ID": "17025063453"
+            }
+        ]
     },
     {
         "BattleNumber": 26,
@@ -205,7 +679,25 @@
         "Name": "Egyptian Battle!",
         "Description": "Open final room Raid chests!",
         "StartDate": "2025-03-08",
-        "EndDate": "2025-03-14"
+        "EndDate": "2025-03-14",
+        "Rewards": [
+            {
+                "Name": "Huge Tiedye Dog",
+                "ID": "117016363569133"
+            },
+            {
+                "Name": "Tie Dye Hoverboard",
+                "ID": "81154668871970"
+            },
+            {
+                "Name": "Tie Dye Booth",
+                "ID": "112210909215256"
+            },
+            {
+                "Name": "Clan Gift",
+                "ID": "17025063453"
+            }
+        ]
     },
     {
         "BattleNumber": 27,
@@ -213,7 +705,25 @@
         "Name": "Tie Dye Battle!",
         "Description": "Most Lucky Raid bosses destroyed!",
         "StartDate": "2025-03-15",
-        "EndDate": "2025-03-21"
+        "EndDate": "2025-03-21",
+        "Rewards": [
+            {
+                "Name": "Huge Sphinx",
+                "ID": "112960031922397"
+            },
+            {
+                "Name": "Sphinx Hoverboard",
+                "ID": "104370511466864"
+            },
+            {
+                "Name": "Sphinx Booth",
+                "ID": "136609680567198"
+            },
+            {
+                "Name": "Clan Gift",
+                "ID": "17025063453"
+            }
+        ]
     },
     {
         "BattleNumber": 28,
@@ -221,6 +731,20 @@
         "Name": "Athena Battle!",
         "Description": "Most gems mined!",
         "StartDate": "2025-03-29",
-        "EndDate": "2025-04-04"
+        "EndDate": "2025-04-04",
+        "Rewards": [
+            {
+                "Name": "Titanic Mosaic Cat",
+                "ID": "121979531633033"
+            },
+            {
+                "Name": "Huge Athena Owl",
+                "ID": "117588896362117"
+            },
+            {
+                "Name": "Clan Gift #2",
+                "ID": "126839917322650"
+            }
+        ]
     }
 ]
