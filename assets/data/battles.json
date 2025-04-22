@@ -746,5 +746,27 @@
                 "ID": "126839917322650"
             }
         ]
+    },
+    {
+        "BattleNumber": 29,
+        "BattleID": "PixelChickBattle",
+        "Name": "Pixel Chick Battle!",
+        "Description": "Hatch rare pets from the event world!",
+        "StartDate": "2025-04-19",
+        "EndDate": "2025-04-25",
+        "Rewards": [
+            {
+                "Name": "Titanic Mosaic Cat",
+                "ID": "121979531633033"
+            },
+            {
+                "Name": "Huge Pixel Chick",
+                "ID": "109348174675332"
+            },
+            {
+                "Name": "Clan Gift #2",
+                "ID": "126839917322650"
+            }
+        ]
     }
 ]
